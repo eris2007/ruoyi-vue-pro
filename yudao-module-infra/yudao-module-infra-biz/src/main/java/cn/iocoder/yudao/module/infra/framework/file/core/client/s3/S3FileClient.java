@@ -42,6 +42,7 @@ public class S3FileClient extends AbstractFileClient<S3FileClientConfig> {
         client = (AmazonS3Client)AmazonS3ClientBuilder.standard()
                 .withCredentials(buildCredentials())
                 .withEndpointConfiguration(buildEndpointConfiguration())
+            .withPathStyleAccessEnabled(true)
                 .build();
     }
 

@@ -15,6 +15,12 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 @AutoConfiguration(after = YudaoRedisAutoConfiguration.class)
 public class YudaoApiSignatureAutoConfiguration {
 
+    /**
+     * 配置ApiSignatureAspect Bean，用于处理API签名校验的逻辑
+     *
+     * @param signatureRedisDAO Api签名信息存储的Redis数据访问对象
+     * @return 返回配置好的ApiSignatureAspect实例
+     */
     @Bean
     public ApiSignatureAspect signatureAspect(ApiSignatureRedisDAO signatureRedisDAO) {
         return new ApiSignatureAspect(signatureRedisDAO);
